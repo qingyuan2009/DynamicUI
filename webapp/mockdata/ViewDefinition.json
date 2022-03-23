@@ -1,0 +1,164 @@
+{
+    "ViewDefinitionCollection": [
+        {
+            "resourceType": "StructureDefinition",
+            "id": "DeterminePricingProcedure",
+            "meta": {
+                "profile": [
+                    "http://sap.com/healthcare/fhir/StructureDefinition/ViewDefinition"
+                ],
+                "versionId": "b51db07d-49c3-4f09-9e5c-d44f99326fa1",
+                "lastUpdated": "2021-12-03T02:30:26.896Z"
+            },
+            "extension": [
+                {
+                    "url": "http://sap.com/healthcare/fhir/StructureDefinition/StructureDefinition-participantResource",
+                    "valueString": "Account"
+                },
+                {
+                    "url": "http://sap.com/healthcare/fhir/StructureDefinition/StructureDefinition-participantResource",
+                    "valueString": "Organization"
+                },
+                {
+                    "url": "http://sap.com/healthcare/fhir/StructureDefinition/StructureDefinition-participantResource",
+                    "valueString": "Patient"
+                },
+                {
+                    "url": "http://sap.com/healthcare/fhir/StructureDefinition/StructureDefinition-participantResource",
+                    "valueString": "Coverage"
+                },
+                {
+                    "url": "http://sap.com/healthcare/fhir/StructureDefinition/StructureDefinition-participantResource",
+                    "valueString": "Encounter"
+                },
+                {
+                    "url": "http://sap.com/healthcare/fhir/StructureDefinition/StructureDefinition-transformation",
+                    "valueString": "Account.query( Account.as(A).where( $this.extension('http://sap.com/healthcare/PatActg/fhir/StructureDefinition/account-class').code = 'Accounting-Case' and ( $this.extension('http://sap.com/healthcare/PatActg/fhir/StructureDefinition/account-business-status').code = 'not-billed' or $this.extension('http://sap.com/healthcare/PatActg/fhir/StructureDefinition/account-business-status').code = 'partially-billed' ) and Account.as(B).where( $this.partOf = A and $this.extension('http://sap.com/healthcare/PatActg/fhir/StructureDefinition/account-class').code = 'Coverage-Account' and $this.extension('http://sap.com/healthcare/PatActg/fhir/StructureDefinition/account-business-status').code = 'qualified' ).exists()).elements($this.id, $this.identifier.where(use = 'usual'), $this.type, $this.servicePeriod, $this.extension('http://sap.com/healthcare/PatActg/fhir/StructureDefinition/drg-code'), $this.extension('http://sap.com/healthcare/PatActg/fhir/StructureDefinition/account-business-status')).include(A.subject.where(resolve() is Patient).elements(name.where(use = 'official'), identifier.where(use = 'usual'), birthDate, gender, id)).as(P).include(B.coverage.coverage.include($this.payor.where(resolve() is Organization).elements(name))).as(C).include(B.coverage.coverage.elements(id)).as(I).include(A.owner.elements(name, identifier.where(use = 'usual'))).as(O).orderby(A.subject.where(resolve() is Patient).name.where(use = 'official') ASC, A.servicePeriod.start DESC)).map( A.id as id, A.identifier.value as billingCaseNumber, A.servicePeriod.start as admissionDate, A.servicePeriod.end as dischargeDate, P.name[0].text as patientName, P.identifier.value as patientId, P.birthDate as patientDOB, C.payor.name as insuranceProvider, O.owner.name as dischargingDepartment, A.type.coding[0].code as billingScenario, A.type.coding[0].display as billingScenarioDisplay, A.extension('http://sap.com/healthcare/PatActg/fhir/StructureDefinition/drg-code').code as DRG, A.extension('http://sap.com/healthcare/PatActg/fhir/StructureDefinition/drg-code').display as DRGDisplay, P.gender as patientGender, P.name[0].family as patientLastName, P.name[0].given as patientFirstName, O.owner.identifier.value as departmentId, A.extension('http://sap.com/healthcare/PatActg/fhir/StructureDefinition/account-business-status').code as businessStatus, A.extension('http://sap.com/healthcare/PatActg/fhir/StructureDefinition/account-business-status').display as businessStatusDisplay, P.id as patientUUID, I.id as coverageUUID)"
+                }
+            ],
+            "url": "http://sap.com/healthcare/PatActg/fhir/StructureDefinition/DeterminePricingProcedure",
+            "version": "1.0.0",
+            "name": "DeterminePricingProcedure",
+            "status": "draft",
+            "date": "2020-07-01T11:37:54.000Z",
+            "publisher": "SAP Health",
+            "description": "BC: DeterminePricingProcedure",
+            "fhirVersion": "4.0.0",
+            "kind": "resource",
+            "abstract": false,
+            "type": "DeterminePricingProcedure",
+            "baseDefinition": "http://hl7.org/fhir/StructureDefinition/DomainResource",
+            "derivation": "specialization",
+            "snapshot": {
+                "element": [
+                    {
+                        "id": "DeterminePricingProcedure",
+                        "path": "DeterminePricingProcedure",
+                        "short": "Information for the UI",
+                        "definition": "DeterminePricingProcedure UI Page.",
+                        "alias": [
+                            "SubjectOfCare Client Resident"
+                        ],
+                        "min": 0,
+                        "max": "*",
+                        "base": {
+                            "path": "DeterminePricingProcedure",
+                            "min": 0,
+                            "max": "*"
+                        },
+                        "isModifier": false,
+                        "isSummary": false
+                    },
+                    {
+                        "id": "DeterminePricingProcedure.id",
+                        "path": "DeterminePricingProcedure.id",
+                        "label": "ID",
+                        "short": "Logical id of this artifact",
+                        "definition": "DeterminePricingProcedure.id",
+                        "comment": "The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+                        "min": 1,
+                        "max": "1",
+                        "base": {
+                            "path": "Resource.id",
+                            "min": 0,
+                            "max": "1"
+                        },
+                        "type": [
+                            {
+                                "code": "id"
+                            }
+                        ],
+                        "isModifier": false,
+                        "isSummary": true
+                    },
+                    {
+                        "id": "DeterminePricingProcedure.billingScenario",
+                        "path": "DeterminePricingProcedure.billingScenario",
+                        "label": "Billing Scenario",
+                        "short": "billingScenario",
+                        "definition": "billingScenario",
+                        "comment": "DeterminePricingProcedure.billingScenario",
+                        "min": 1,
+                        "max": "1",
+                        "base": {
+                            "path": "DeterminePricingProcedure.billingScenario",
+                            "min": 1,
+                            "max": "1"
+                        },
+                        "type": [
+                            {
+                                "code": "string"
+                            }
+                        ],
+                        "isModifier": false,
+                        "isSummary": true
+                    },
+                    {
+                        "id": "DeterminePricingProcedure.pricingProcedure",
+                        "path": "DeterminePricingProcedure.pricingProcedure",
+                        "label": "Pricing Procedure",
+                        "short": "pricingProcedure",
+                        "definition": "pricingProcedure",
+                        "comment": "DeterminePricingProcedure.pricingProcedure",
+                        "min": 1,
+                        "max": "1",
+                        "base": {
+                            "path": "DeterminePricingProcedure.pricingProcedure",
+                            "min": 1,
+                            "max": "1"
+                        },
+                        "type": [
+                            {
+                                "code": "string"
+                            }
+                        ],
+                        "isModifier": false,
+                        "isSummary": true
+                    },
+                    {
+                        "id": "DeterminePricingProcedure.institution",
+                        "path": "DeterminePricingProcedure.institution",
+                        "label": "Institution",
+                        "short": "institution",
+                        "definition": "institution",
+                        "comment": "DeterminePricingProcedure.institution",
+                        "min": 1,
+                        "max": "1",
+                        "base": {
+                            "path": "DeterminePricingProcedure.institution",
+                            "min": 1,
+                            "max": "1"
+                        },
+                        "type": [
+                            {
+                                "code": "string"
+                            }
+                        ],
+                        "isModifier": false,
+                        "isSummary": true
+                    }
+                ]
+            }
+        }
+    ]
+}

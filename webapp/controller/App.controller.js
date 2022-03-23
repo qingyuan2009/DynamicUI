@@ -17,21 +17,21 @@ sap.ui.define([
 
 
 		onInit: function() {
-			sap.ui.getCore().getMessageManager().registerObject(this.getView(), true);
+			//sap.ui.getCore().getMessageManager().registerObject(this.getView(), true);
 
-			const oCM = new ConditionModel();
+			//const oCM = new ConditionModel();
 			
-			this.getView().setModel(oCM, "cm");
-			this.getView().setModel(new JSONModel({ routeName: "accounts" }), "app");
+			//this.getView().setModel(oCM, "cm");
+			//this.getView().setModel(new JSONModel({ routeName: "accounts" }), "app");
 
-			const oRouter = UIComponent.getRouterFor(this);
-			oRouter.attachRouteMatched(this.onRouteMatched.bind(this));
+			//const oRouter = UIComponent.getRouterFor(this);
+			//oRouter.attachRouteMatched(this.onRouteMatched.bind(this));
 		},
 
 
 		onNavigate: function(oEvent) {
-			const oRouter = UIComponent.getRouterFor(this);
-			oRouter.navTo(oEvent.getParameter("selectedKey"));
+			//const oRouter = UIComponent.getRouterFor(this);
+			//oRouter.navTo(oEvent.getParameter("selectedKey"));
 		},
 
 		onExit: function() {
@@ -43,23 +43,23 @@ sap.ui.define([
 		},
 
 		onRouteMatched: function(oEvent) {
-			const oParameters = oEvent.getParameters();
-			let sRouteName = oParameters.name;
+			//const oParameters = oEvent.getParameters();
+			//let sRouteName = oParameters.name;
 
-			switch (sRouteName) {
-				case "":
-				case "accounts":
-				case "accountdetails":
-					sRouteName = "accounts";
-					break;
+			//switch (sRouteName) {
+			//	case "":
+			//	case "accounts":
+			//	case "accountdetails":
+			//		sRouteName = "accounts";
+			//		break;
 
-				default:
-					sRouteName = "accounts";
-					break;
-			}
+			//	default:
+			//		sRouteName = "accounts";
+			//		break;
+			//}
 
-			const oAppModel = this.getView().getModel("app");
-			oAppModel.setProperty("/routeName", sRouteName);
+			//const oAppModel = this.getView().getModel("app");
+			//oAppModel.setProperty("/routeName", sRouteName);
 		},
 		
 		onStartRTA: function(oEvent) {
