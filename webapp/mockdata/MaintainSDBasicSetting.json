@@ -1,0 +1,168 @@
+{
+    "resourceType": "Bundle",
+    "id": "8e08f89d-162b-46e4-a31e-21cb759ebd15",
+    "type": "searchset",
+    "total": 2,
+    "link": [
+        {
+            "relation": "self",
+            "url": "https://fhir-core-svc-prod.cfapps.eu10.hana.ondemand.com/fhir/BusinessConfiguration?code=maintainSDBasicSetting&_count=100"
+        }
+    ],
+    "entry": [
+        {
+            "fullUrl": "https://fhir-core-svc-prod.cfapps.eu10.hana.ondemand.com/fhir/BusinessConfiguration/c610276b-855a-47a9-90f9-7b27860b5dad",
+            "resource": {
+                "resourceType": "BusinessConfiguration",
+                "meta": {
+                    "profile": [
+                        "http://sap.com/healthcare/PatActg/fhir/StructureDefinition/businessConfiguration-maintainSDBasicSetting"
+                    ],
+                    "versionId": "231cb134-1492-4019-a20e-366ef12e8cee",
+                    "lastUpdated": "2022-01-25T07:06:22.609Z"
+                },
+                "extension": [
+                    {
+                        "url": "http://sap.com/healthcare/fhir/StructureDefinition/institution",
+                        "valueReference": {
+                            "reference": "Organization/134f0654-6119-45b8-b9a7-57ec22af20fb"
+                        }
+                    }
+                ],
+                "active": true,
+                "code": {
+                    "system": "http://sap.com/healthcare/PatActg/fhir/CodeSystem/businessConfigurationDefinition",
+                    "code": "maintainSDBasicSetting"
+                },
+                "element": [
+                    {
+                        "name": "CompanyCode",
+                        "valueString": "111"
+                    },
+                    {
+                        "name": "SalesOrganization",
+                        "valueString": "0001"
+                    },
+                    {
+                        "name": "DistributionChannel",
+                        "valueString": "01"
+                    },
+                    {
+                        "name": "Division",
+                        "valueString": "02"
+                    },
+                    {
+                        "name": "CustomerPricingProcedure",
+                        "valueString": "ZN"
+                    },
+                    {
+                        "name": "SaleDocumentType",
+                        "valueString": "EO01"
+                    },
+                    {
+                        "name": "DocumentItemCategory",
+                        "valueString": "ED0121"
+                    },
+                    {
+                        "name": "DocumentRequestType",
+                        "valueString": "BDR1"
+                    },
+                    {
+                        "name": "BillingDocumentType",
+                        "valueString": "CBD1"
+                    },
+                    {
+                        "name": "ReconciliationAccount",
+                        "valueString": "0000140001"
+                    }
+                ],
+                "immutable": true,
+                "id": "c610276b-855a-47a9-90f9-7b27860b5dad",
+                "identifier": [
+                    {
+                        "system": "https://fhir-core-svc-prod.cfapps.eu10.hana.ondemand.com",
+                        "use": "official",
+                        "value": "c610276b-855a-47a9-90f9-7b27860b5dad"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "https://fhir-core-svc-prod.cfapps.eu10.hana.ondemand.com/fhir/BusinessConfiguration/7423797c-3c2e-4798-8fec-216618a10e9f",
+            "resource": {
+                "resourceType": "BusinessConfiguration",
+                "meta": {
+                    "profile": [
+                        "http://sap.com/healthcare/PatActg/fhir/StructureDefinition/businessConfiguration-maintainSDBasicSetting"
+                    ],
+                    "versionId": "1cd3f4f4-978f-4372-8f2d-79cd3fff8de5",
+                    "lastUpdated": "2022-01-25T08:11:48.263Z"
+                },
+                "extension": [
+                    {
+                        "url": "http://sap.com/healthcare/fhir/StructureDefinition/institution",
+                        "valueReference": {
+                            "reference": "Organization/31f64856-5a0d-4d28-af61-7048615a4c84"
+                        }
+                    }
+                ],
+                "active": true,
+                "code": {
+                    "system": "http://sap.com/healthcare/PatActg/fhir/CodeSystem/businessConfigurationDefinition",
+                    "code": "maintainSDBasicSetting"
+                },
+                "element": [
+                    {
+                        "name": "CompanyCode",
+                        "valueString": "1234"
+                    },
+                    {
+                        "name": "SalesOrganization",
+                        "valueString": "0002"
+                    },
+                    {
+                        "name": "DistributionChannel",
+                        "valueString": "01"
+                    },
+                    {
+                        "name": "Division",
+                        "valueString": "021"
+                    },
+                    {
+                        "name": "CustomerPricingProcedure",
+                        "valueString": "ZN"
+                    },
+                    {
+                        "name": "SaleDocumentType",
+                        "valueString": "EO03"
+                    },
+                    {
+                        "name": "DocumentItemCategory",
+                        "valueString": "ED01"
+                    },
+                    {
+                        "name": "DocumentRequestType",
+                        "valueString": "BDR1"
+                    },
+                    {
+                        "name": "BillingDocumentType",
+                        "valueString": "CBD1"
+                    },
+                    {
+                        "name": "ReconciliationAccount",
+                        "valueString": "1400088"
+                    }
+                ],
+                "immutable": true,
+                "id": "7423797c-3c2e-4798-8fec-216618a10e9f",
+                "identifier": [
+                    {
+                        "system": "https://fhir-core-svc-prod.cfapps.eu10.hana.ondemand.com",
+                        "use": "official",
+                        "value": "7423797c-3c2e-4798-8fec-216618a10e9f"
+                    }
+                ]
+            }
+        }
+    ]
+}

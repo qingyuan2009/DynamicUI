@@ -107,9 +107,19 @@
 					]
 				},
 				{
-					"pattern": "Accounts/{accountId}",
+					"pattern": "detail/{layout}",
+					"name": "detail",
+					"target": [
+						"master",
+						"detail"
+					]
+				},
+				{
+					"pattern": "accounts/{accountId}/{layout}",
 					"name": "accountdetails",
 					"target": [
+						"master",
+						"accounts",
 						"accountdetails"
 					]
 				}
@@ -128,13 +138,21 @@
 					"controlAggregation": "endColumnPages"
 				},
 				"accountdetails": {
+					"name": "AccountDetails",
 					"viewId": "accountdetails",
-					"viewName": "AccountDetails"
+					"viewName": "AccountDetails",
+					"controlAggregation": "endColumnPages"
 				},
 				"accounts": {
 					"name": "Accounts",
 					"viewId": "accounts",
 					"viewName": "Accounts",
+					"controlAggregation": "midColumnPages"					
+				},
+				"detail": {
+					"name": "Detail",
+					"viewId": "detail",
+					"viewName": "Detail",
 					"controlAggregation": "midColumnPages"					
 				}
 			}

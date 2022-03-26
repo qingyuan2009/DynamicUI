@@ -8,10 +8,7 @@
 		<f:title>
 			<f:DynamicPageTitle>
 				<f:heading>
-				<Title text="Business Configuration (2)"/>
-				<!--
-					<Title text="Products ({products>/ProductCollectionStats/Counts/Total})"/>
-				-->
+				<Title text="Business Configuration ({viewDefinition>/total})"/>				
 				</f:heading>
 			</f:DynamicPageTitle>
 		</f:title>
@@ -26,9 +23,9 @@
 				class="sapFDynamicPageAlignContent"
 				width="auto"
 				items="{
-					path: 'viewDefinition>/ViewDefinitionCollection',
+					path: 'viewDefinition>/entry',
 					sorter: {
-						path: 'name'
+						path: '/resource/name'
 					}
 				}">
 				<headerToolbar>
@@ -50,8 +47,8 @@
 				<items>
 					<ColumnListItem type="Navigation">
 						<cells>
-							<ObjectIdentifier title="{viewDefinition>name}"/>	
-							<Text text="{viewDefinition>description}" />
+							<ObjectIdentifier title="{viewDefinition>resource/name}"/>	
+							<Text text="{viewDefinition>resource/description}" />
 							<!--
 							<ObjectIdentifier title="{viewDefinition>name}" text="{viewDefinition>description}" />							
 							<ObjectNumber

@@ -34,6 +34,11 @@ sap.ui.define([
 			var oViewDefinitionModel = new JSONModel(sap.ui.require.toUrl("sap/ui/fhir/mockdata/ViewDefinition.json"));
 			oViewDefinitionModel.setSizeLimit(1000);
 			this.setModel(oViewDefinitionModel, "viewDefinition");
+
+			// BC content -> load BC content
+			var oBCModel = new JSONModel(sap.ui.require.toUrl("sap/ui/fhir/mockdata/MaintainSDBasicSetting.json"));
+			oBCModel.setSizeLimit(1000);
+			this.setModel(oBCModel, "BCContent");
 			
 			//local FHIR service
 			const sServiceUri = this.getMetadata().getManifestEntry("/sap.app/dataSources/fhir/uri");

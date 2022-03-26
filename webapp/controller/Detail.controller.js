@@ -10,10 +10,10 @@ sap.ui.define([
 
 	"use strict";
 
-	return Controller.extend("sap.ui.fhir.controller.Accounts", {
+	return Controller.extend("sap.ui.fhir.controller.Detail", {
 						
 		onInit: function() {
-			UIComponent.getRouterFor(this).getRoute("accounts").attachPatternMatched(this._onRouteMatched, this);
+			UIComponent.getRouterFor(this).getRoute("detail").attachPatternMatched(this._onRouteMatched, this);
 			//const fd = new FHIRDate();
 			//const i = 0;			
 			//const oTable = this.getView();

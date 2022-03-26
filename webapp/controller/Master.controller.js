@@ -15,6 +15,7 @@ sap.ui.define([
 
 			this.oRouter.getRoute("master").attachPatternMatched(this._onViewDefinitionMatched, this);
 			this.oRouter.getRoute("accounts").attachPatternMatched(this._onViewDefinitionMatched, this);
+			//this.oRouter.getRoute("detail").attachPatternMatched(this._onViewDefinitionMatched, this);
 			
 			//this.oRouter.getRoute("detail").attachPatternMatched(this._onProductMatched, this);
 			//this.oRouter.getRoute("detailDetail").attachPatternMatched(this._onProductMatched, this);
@@ -26,6 +27,7 @@ sap.ui.define([
 			//var product = 95;
 
 			this.oRouter.navTo("accounts", {layout: oNextUIState.layout});
+			//this.oRouter.navTo("detail", {layout: oNextUIState.layout});
 		},
 		onSearch: function (oEvent) {
 			var oTableSearchState = [],
