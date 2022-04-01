@@ -34,11 +34,11 @@ sap.ui.define([
 		},
 				
 		_onRouteMatched : function (oEvent) {
-			const table = this.getView().byId("accountsTable");
-			const rowBinding = table.getRowBinding();
-			if (rowBinding) {
-				rowBinding.refresh();
-			}
+			//const table = this.getView().byId("accountsTable");
+			//const rowBinding = table.getRowBinding();
+			//if (rowBinding) {
+				//rowBinding.refresh();
+			//}
 		},
 		
 		onColumnPress: function (oEvent) {

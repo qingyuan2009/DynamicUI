@@ -95,7 +95,7 @@
 					"name": "master",
 					"target": [	
 						"master",
-						"accounts"
+						"detail"
 					]
 				},				
 				{

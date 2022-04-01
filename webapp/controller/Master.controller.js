@@ -14,8 +14,8 @@ sap.ui.define([
 			this._bDescendingSort = false;
 
 			this.oRouter.getRoute("master").attachPatternMatched(this._onViewDefinitionMatched, this);
-			this.oRouter.getRoute("accounts").attachPatternMatched(this._onViewDefinitionMatched, this);
-			//this.oRouter.getRoute("detail").attachPatternMatched(this._onViewDefinitionMatched, this);
+			//this.oRouter.getRoute("accounts").attachPatternMatched(this._onViewDefinitionMatched, this);
+			this.oRouter.getRoute("detail").attachPatternMatched(this._onViewDefinitionMatched, this);
 			
 			//this.oRouter.getRoute("detail").attachPatternMatched(this._onProductMatched, this);
 			//this.oRouter.getRoute("detailDetail").attachPatternMatched(this._onProductMatched, this);
@@ -26,8 +26,8 @@ sap.ui.define([
 			//	product = productPath.split("/").slice(-1).pop();
 			//var product = 95;
 
-			this.oRouter.navTo("accounts", {layout: oNextUIState.layout});
-			//this.oRouter.navTo("detail", {layout: oNextUIState.layout});
+			//this.oRouter.navTo("accounts", {layout: oNextUIState.layout});
+			this.oRouter.navTo("detail", {layout: oNextUIState.layout});
 		},
 		onSearch: function (oEvent) {
 			var oTableSearchState = [],
