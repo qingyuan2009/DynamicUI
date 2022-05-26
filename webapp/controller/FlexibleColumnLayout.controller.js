@@ -11,7 +11,7 @@ sap.ui.define([
 			this.oRouter.attachBeforeRouteMatched(this.onBeforeRouteMatched, this);
 			// Navigating to a random product in order to display two columns initially
 			//this.oRouter.navTo("accounts", {layout: "TwoColumnsMidExpanded"});
-			this.oRouter.navTo("detail", {layout: "TwoColumnsMidExpanded"});
+			this.oRouter.navTo("detail", {layout: "TwoColumnsMidExpanded"});			
 		},
 
 		onBeforeRouteMatched: function(oEvent) {

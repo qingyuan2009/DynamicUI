@@ -122,6 +122,15 @@
 						"accounts",
 						"accountdetails"
 					]
+				},
+				{
+					"pattern": "detail/{accountId}/{layout}",
+					"name": "detailDetail",
+					"target": [
+						"master",
+						"detail",
+						"detailDetail"
+					]
 				}
 			],
 			"targets": {

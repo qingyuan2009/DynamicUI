@@ -15,7 +15,7 @@ sap.ui.define([
 
 			this.oRouter.getRoute("master").attachPatternMatched(this._onViewDefinitionMatched, this);
 			//this.oRouter.getRoute("accounts").attachPatternMatched(this._onViewDefinitionMatched, this);
-			this.oRouter.getRoute("detail").attachPatternMatched(this._onViewDefinitionMatched, this);
+			//this.oRouter.getRoute("detail").attachPatternMatched(this._onViewDefinitionMatched, this);
 			
 			//this.oRouter.getRoute("detail").attachPatternMatched(this._onProductMatched, this);
 			//this.oRouter.getRoute("detailDetail").attachPatternMatched(this._onProductMatched, this);

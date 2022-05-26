@@ -23,7 +23,8 @@ sap.ui.define([
 	return Controller.extend("sap.ui.fhir.controller.Detail", {
 
 		onInit: function () {
-			UIComponent.getRouterFor(this).getRoute("detail").attachPatternMatched(this._onRouteMatched, this);
+			
+			//UIComponent.getRouterFor(this).getRoute("detail").attachPatternMatched(this._onRouteMatched, this);
 			//const fd = new FHIRDate();
 			//const i = 0;			
 			//const oTable = this.getView();
@@ -32,24 +33,28 @@ sap.ui.define([
 			//sap.m.MessageBox.show("get layout");
 			//}			      
 			//}, oTable);
-
 			this._initMDCTable();
+			this.oRouter = this.getOwnerComponent().getRouter();
+			this.oRouter.getRoute("detail").attachPatternMatched(this._onRouteMatched, this);
+
+			
 		},
 
 		onRowPress: function (oEvent) {
-
 			var oNextUIState = this.getOwnerComponent().getHelper().getNextUIState(2);
 			const oContext = oEvent.getParameter("bindingContext") || oEvent.getSource().getBindingContext();
-			UIComponent.getRouterFor(this).navTo("accountdetails",
+			UIComponent.getRouterFor(this).navTo("detailDetail",
 				{ layout: oNextUIState.layout, accountId: oContext.getProperty("id") });
 		},
 
 		_onRouteMatched: function (oEvent) {
-			//const table = this.getView().byId("accountsTable");
-			//const rowBinding = table.getRowBinding();
-			//if (rowBinding) {
-			//	rowBinding.refresh();
-			//}
+			var oTable = this.getView().byId("accountsTable");
+			if (oTable) {
+				const rowBinding = oTable.getRowBinding();
+				if (rowBinding) {
+					rowBinding.refresh();
+				}
+			}
 		},
 
 		onColumnPress: function (oEvent) {
@@ -62,15 +67,15 @@ sap.ui.define([
 			//var sNextLayout = this.oModel.getProperty("/actionButtonsInfo/midColumn/fullScreen");			
 			//this.oRouter.navTo("detail", {layout: sNextLayout, product: this._product});
 			var oNextUIState = this.getOwnerComponent().getHelper().getNextUIState(1);
-			this.oRouter.navTo("detail", {layout: oNextUIState.layout});
+			this.oRouter.navTo("detail", { layout: oNextUIState.layout });
 		},
 
 		_initMDCTable: function () {
 
 			var oMDCContainer = this.byId("mdcContainer");
 
-			var oFilterField =	new sap.ui.mdc.FilterField('ff3',
-				{	
+			var oFilterField = new sap.ui.mdc.FilterField('ff3',
+				{
 					delegate: {
 						name: "sap/ui/fhir/delegate/FHIRFieldBaseDelegate",
 						payload: {}
@@ -79,7 +84,7 @@ sap.ui.define([
 					dataType: "sap.ui.model.type.String",
 					operators: "EQ,LE,LT,GE,GT,BT",
 					fieldHelp: "FHDepartmentName",
-					maxConditions:2,
+					maxConditions: 2,
 					conditions: "{$filters>/conditions/organizationName}"
 				}
 			);
@@ -102,15 +107,15 @@ sap.ui.define([
 					//	dataType: "String",
 					//	operators: "EQ,LE,LT,GE,GT,BT",
 					//	conditions: "{$filters>/conditions/name}"
-						//fieldHelp: new FieldValueHelp('vh1', {
-						//filterFields: "*name*",
-						//title: "Department",
-						//open: this._onValueHelpOpen.bind(this),
-						//noDialog: false,
-						//showConditionPanel: true,
-						//keyPath: "name",
-						//descriptionPath: "name"
-						//})
+					//fieldHelp: new FieldValueHelp('vh1', {
+					//filterFields: "*name*",
+					//title: "Department",
+					//open: this._onValueHelpOpen.bind(this),
+					//noDialog: false,
+					//showConditionPanel: true,
+					//keyPath: "name",
+					//descriptionPath: "name"
+					//})
 					//})
 				]
 			});
@@ -138,6 +143,8 @@ sap.ui.define([
 				p13nMode: ['Column'],
 				delegate: { name: 'sap/ui/fhir/delegate/ExceptionAccountTableDelegate', payload: { collectionName: 'ExceptionAccount' } },
 				showRowCount: true,
+				rowPress: this.onRowPress.bind(this),
+				rowAction: ["Navigation"],
 				threshold: 20,
 				autoBindOnInit: true,
 				type: new ResponsiveTableType({ growingMode: "Scroll" }),
